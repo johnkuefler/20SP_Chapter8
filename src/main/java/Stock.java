@@ -15,10 +15,23 @@ public class Stock {
    
     private String name;
     private double price;
+    private StockType type;
     
-    public Stock(String name, double price) {
+    public Stock(String name, double price, StockType type) {
         this.name = name;
         this.price = price;
+        this.type = type;
+    }
+    
+    public Stock(Stock stockToCopy) {
+        this.name = stockToCopy.getName();
+        this.price = stockToCopy.getPrice();
+        this.type = stockToCopy.getType();
+    }
+    
+    public Stock() {
+        this.name = "";
+        this.price = 0;
     }
     
     public String getName() {
@@ -37,11 +50,20 @@ public class Stock {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return  "name=" + name + ", price=" + price;
+    public StockType getType() {
+        return type;
     }
 
+    public void setType(StockType type) {
+        this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Stock{" + "name=" + name + ", price=" + price + ", type=" + type.toString() + '}';
+    }
+    
+      
     @Override
     public boolean equals(Object obj) {
        
